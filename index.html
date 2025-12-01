@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -6,40 +6,51 @@
   <title>AI Resume Builder</title>
   <meta name="description" content="Create a professional resume in minutes. Simple, fast, and free online resume builder.">
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(to right, #4facfe, #00f2fe);
-      color: white;
-    }
-    h1 {
-      margin-top: 60px;
-      font-size: 2.5em;
-    }
-    p {
-      font-size: 1.2em;
-    }
-    button {
-      margin-top: 20px;
-      padding: 10px 20px;
-      font-size: 1em;
-      border: none;
-      border-radius: 5px;
-      background-color: white;
-      color: #007acc;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #007acc;
-      color: white;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; }
+    .container { text-align: center; max-width: 600px; animation: fadeIn 0.6s ease-in; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+    h1 { font-size: 3em; margin-bottom: 20px; font-weight: 700; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); }
+    .tagline { font-size: 1.3em; margin-bottom: 30px; opacity: 0.95; }
+    .description { font-size: 1em; margin: 30px 0; opacity: 0.9; line-height: 1.6; }
+    .features { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; margin: 40px 0; font-size: 0.9em; }
+    .feature { background: rgba(255, 255, 255, 0.1); padding: 15px; border-radius: 8px; backdrop-filter: blur(10px); }
+    .feature-icon { font-size: 2em; margin-bottom: 10px; }
+    .cta-button { display: inline-block; margin-top: 30px; padding: 15px 40px; font-size: 1.2em; border: none; border-radius: 50px; background-color: white; color: #007acc; cursor: pointer; font-weight: bold; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); }
+    .cta-button:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); background-color: #f0f0f0; }
+    .secondary-info { font-size: 0.9em; margin-top: 50px; opacity: 0.85; }
+    .secondary-info strong { font-weight: 600; }
+    @media (max-width: 600px) { h1 { font-size: 2em; } .features { grid-template-columns: 1fr; } .tagline { font-size: 1.1em; } }
   </style>
 </head>
 <body>
-  <h1>Welcome to AI Resume Builder</h1>
-  <p>Create your professional resume easily and instantly!</p>
-  <button onclick="alert('Coming soon! Resume builder in development.')">Start Building</button>
+  <div class="container">
+    <h1> Resume Builder</h1>
+    <p class="tagline">Create Your Professional Resume in Minutes</p>
+    <p class="description">
+      Build a stunning, professional resume with our easy-to-use online resume builder. 
+      No sign-ups. No complicated steps. Just pure simplicity.
+    </p>
+    <div class="features">
+      <div class="feature">
+        <div class="feature-icon"></div>
+        <div>Lightning Fast</div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon"></div>
+        <div>100% Private</div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon"></div>
+        <div>Auto-Saved</div>
+      </div>
+    </div>
+    <a href="builder.html" class="cta-button"> Start Building</a>
+    <p class="secondary-info">
+      <strong> Export as PDF or TXT</strong>  
+      <strong> 100% Free</strong>  
+      <strong> No Account Required</strong>
+    </p>
+  </div>
 </body>
 </html>

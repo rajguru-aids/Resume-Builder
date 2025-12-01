@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder - AI Resume Builder</title>
+    <meta name="description" content="Build your professional resume online with our easy-to-use resume builder.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .section {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            color: #007acc;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #007acc;
+            padding-bottom: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="url"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 14px;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007acc;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #005a9e;
+        }
+
+        button.secondary {
+            background-color: #6c757d;
+            margin-left: 10px;
+        }
+
+        button.secondary:hover {
+            background-color: #5a6268;
+        }
+
+        .button-group {
+            margin-top: 15px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .add-btn {
+            width: 100%;
+            margin-top: 10px;
+            background-color: #28a745;
+        }
+
+        .add-btn:hover {
+            background-color: #218838;
+        }
+
+        .entry-item {
+            background: #f9f9f9;
+            border-left: 3px solid #007acc;
+            padding: 12px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .entry-item button {
+            background-color: #dc3545;
+            padding: 5px 10px;
+            font-size: 12px;
+        }
+
+        .entry-item button:hover {
+            background-color: #c82333;
+        }
+
+        .preview {
+            background: white;
+            padding: 40px;
+            min-height: 600px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            line-height: 1.6;
+        }
+
+        .preview h1 {
+            color: #007acc;
+            margin-top: 20px;
+            margin-bottom: 5px;
+            font-size: 28px;
+        }
+
+        .preview .contact-info {
+            color: #666;
+            font-size: 13px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+
+        .preview h3 {
+            color: #007acc;
+            margin-top: 15px;
+            margin-bottom: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+
+        .preview .entry {
+            margin-bottom: 12px;
+            font-size: 13px;
+        }
+
+        .preview .entry-title {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .preview .entry-subtitle {
+            color: #666;
+            font-style: italic;
+        }
+
+        .preview .entry-description {
+            color: #555;
+            margin-top: 3px;
+        }
+
+        .export-buttons {
+            position: sticky;
+            bottom: 20px;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        @media (max-width: 1024px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .nav-header {
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+
+        .nav-header h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+
+        .nav-header a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            display: inline-block;
+            margin-top: 10px;
+            padding: 5px 10px;
+            border: 1px solid white;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .nav-header a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav-header">
+        <h1>Resume Builder</h1>
+        <a href="index.html">← Back to Home</a>
+    </div>
+
+    <div class="container">
+        <!-- Form Section -->
+        <div class="section">
+            <h2>Resume Information</h2>
+
+            <!-- Personal Info -->
+            <div class="form-group">
+                <label for="fullName">Full Name *</label>
+                <input type="text" id="fullName" placeholder="John Doe" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" id="email" placeholder="john@example.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" placeholder="+1 (555) 123-4567">
+            </div>
+
+            <div class="form-group">
+                <label for="location">Location</label>
+                <input type="text" id="location" placeholder="New York, NY">
+            </div>
+
+            <div class="form-group">
+                <label for="website">Website / Portfolio</label>
+                <input type="url" id="website" placeholder="https://johndoe.com">
+            </div>
+
+            <!-- Professional Summary -->
+            <div class="form-group">
+                <label for="summary">Professional Summary</label>
+                <textarea id="summary"
+                    placeholder="Brief overview of your professional background and goals..."></textarea>
+            </div>
+
+            <!-- Work Experience -->
+            <h3 style="color: #007acc; margin-top: 25px; margin-bottom: 10px;">Work Experience</h3>
+            <div id="workExperienceList"></div>
+            <button class="add-btn" onclick="addWorkExperience()">+ Add Work Experience</button>
+
+            <!-- Education -->
+            <h3 style="color: #007acc; margin-top: 25px; margin-bottom: 10px;">Education</h3>
+            <div id="educationList"></div>
+            <button class="add-btn" onclick="addEducation()">+ Add Education</button>
+
+            <!-- Skills -->
+            <div class="form-group" style="margin-top: 25px;">
+                <label for="skills">Skills (comma-separated)</label>
+                <textarea id="skills"
+                    placeholder="JavaScript, React, Node.js, Python, Project Management..."></textarea>
+            </div>
+
+            <!-- Certifications -->
+            <h3 style="color: #007acc; margin-top: 25px; margin-bottom: 10px;">Certifications</h3>
+            <div id="certificationList"></div>
+            <button class="add-btn" onclick="addCertification()">+ Add Certification</button>
+        </div>
+
+        <!-- Preview Section -->
+        <div>
+            <div class="section">
+                <h2>Resume Preview</h2>
+                <div class="preview" id="preview">
+                    <div style="text-align: center; color: #999;">
+                        Fill in your information to see preview...
+                    </div>
+                </div>
+            </div>
+
+            <div class="export-buttons">
+                <button onclick="downloadPDF()">📥 Download PDF</button>
+                <button class="secondary" onclick="downloadTXT()">📄 Download TXT</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+    <!-- PDF Export Library (html2pdf) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</body>
+
+</html>

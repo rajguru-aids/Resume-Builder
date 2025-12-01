@@ -1,0 +1,32 @@
+{
+    "name": "ai-resume-builder",
+    "version": "1.0.0",
+    "description": "A free, fast, and easy-to-use online resume builder with live preview and PDF export.",
+    "main": "index.html",
+    "scripts": {
+        "start": "python -m http.server 8000",
+        "build": "echo 'This is a static site - no build required'",
+        "test": "echo 'No tests configured yet'"
+    },
+    "keywords": [
+        "resume",
+        "resume-builder",
+        "cv",
+        "job-search",
+        "free",
+        "online",
+        "generator"
+    ],
+    "author": "Raj Guru",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/rajguru-aids/Resume-Builder.git"
+    },
+    "homepage": "https://rajguru-aids.github.io/Resume-Builder/",
+    "bugs": {
+        "url": "https://github.com/rajguru-aids/Resume-Builder/issues"
+    },
+    "devDependencies": {},
+    "dependencies": {}
+}
